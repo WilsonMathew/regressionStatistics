@@ -9,7 +9,7 @@ import javax.swing.*;
  *
  * ***************************************************************/
 
-public class Regrecion extends JFrame implements ActionListener {
+public class Regression extends JFrame implements ActionListener {
 
 	// Frame variable 
  	private static int screen_width = 600;
@@ -41,7 +41,7 @@ public class Regrecion extends JFrame implements ActionListener {
 	JPanel panel;
 	// Constructor
 	
-	public Regrecion() {
+	public Regression() {
 		// panel	
 		panel = new JPanel();
 		panel.setPreferredSize(new Dimension(screen_width, screen_height));
@@ -279,7 +279,7 @@ public class Regrecion extends JFrame implements ActionListener {
 		}
 
 	public static void main(String[] args){
-		Regrecion programa = new Regrecion();
+		Regression programa = new Regression();
 		programa.setVisible(true);
 	}
 }
