@@ -257,20 +257,8 @@ public class Regression extends JFrame implements ActionListener {
 
 			getValues(x_values,y_values);
 
-		//	m = getSlope(x_values, y_values);
 	//		m = String.format("%.3f ",getSlope(x_values, y_values));
 	//		b = String.format("%.3f", getB(x_values, y_values));
-
-			/*
-			mb_tag.setText("m = " + m + "   b = " + b);
-			mb_tag.setVisible(true);
-			line_equation.setText("y = "+ m+"x" + " + " + b);
-			line_equation.setVisible(true);
-
-
-			System.out.println(m);
-			System.out.println(b);
-			*/
 
 			}
 		}
