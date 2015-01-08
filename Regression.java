@@ -4,9 +4,8 @@ import java.util.*;
 import javax.swing.*;
 
  /*****************************************************************
- *
- *
- *
+ * Lineal regression Statics
+ * Wilson Mateo
  * ***************************************************************/
 
 public class Regression extends JFrame implements ActionListener {
