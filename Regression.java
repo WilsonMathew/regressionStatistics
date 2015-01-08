@@ -17,7 +17,7 @@ public class Regression extends JFrame implements ActionListener {
  	// Buttons
  	private JButton menu = new JButton("Go");
  	private JButton menu_back = new JButton("menu"); 
- 	private JButton calcular = new JButton("calcular"); 
+ 	private JButton calculate = new JButton("calculate"); 
 
  	// textFields
  	private JTextField menu_text = new JTextField();
@@ -38,9 +38,9 @@ public class Regression extends JFrame implements ActionListener {
 	private String b = "";	
 
 	JPanel panel;
-	// Constructor
 	
 	public Regression() {
+
 		// panel	
 		panel = new JPanel();
 		panel.setPreferredSize(new Dimension(screen_width, screen_height));
@@ -60,7 +60,7 @@ public class Regression extends JFrame implements ActionListener {
 		// buttons
 		panel.add(menu);
 		panel.add(menu_back);
-		panel.add(calcular);
+		panel.add(calculate);
 
 		// TextFields
 		panel.add(menu_text);
@@ -78,7 +78,7 @@ public class Regression extends JFrame implements ActionListener {
 		panel.add(line_equation);
 
 		// marco
-		setTitle("Regrecion Lineal y Multiple");
+		setTitle("Lineal Regression");
 		pack();
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE); 
@@ -86,7 +86,7 @@ public class Regression extends JFrame implements ActionListener {
 		// Implement Action Listener
 		menu.addActionListener(this);
 		menu_back.addActionListener(this);
-		calcular.addActionListener(this);
+		calculate.addActionListener(this);
 	}
 	
 	/*
@@ -94,6 +94,8 @@ public class Regression extends JFrame implements ActionListener {
 	 */
 	public void initUI() {
 
+		// variables for .setBouns funtion 
+		// if layout=null then .setBounds is required
 		int m_lw = 170, m_tw = 200, m_bw = 60;
 		int h = 30;
 
@@ -107,8 +109,8 @@ public class Regression extends JFrame implements ActionListener {
 		menu.setBounds((m_x - (m_bw/2)), m_y+40, m_bw, h);
 		
 		// Buttons
-		calcular.setBounds(50,540,90,30);
-		calcular.setVisible(false);
+		calculate.setBounds(50,540,90,30);
+		calculate.setVisible(false);
 
 		menu_back.setBounds(500,10, 90,h);
 		menu_back.setVisible(false);
@@ -156,6 +158,7 @@ public class Regression extends JFrame implements ActionListener {
 	
 	public void getValues(double[] x_values, double[] y_values) {
 		
+		// where n represents the number of values set in menu
 		double n = Double.valueOf(menu_text.getText()).doubleValue();
 		double sum_x = 0;
 		double sum_y = 0;
@@ -167,8 +170,6 @@ public class Regression extends JFrame implements ActionListener {
 		double sum_xy = 0;
 
 
-//		mb_tag.setText("xi: " + String.format("%.3f", sum_x)+ "yi " + String.format("%.e3f",sum_y) + "xi2 " + String.format("%.3f", sum_x2)  + "yi2" +String.format("%.3f", sum_y2));
-		// cuadro
 		for(int i = 0; i < x_values.length; i++) {
 			sum_x += x_values[i];
 			sum_y += y_values[i];
@@ -188,9 +189,6 @@ public class Regression extends JFrame implements ActionListener {
 		double b = sxy/sx_2;
 
 		double a = media_y - (b*media_x) ;
-//		double R = sxy/Math.sqrt(sum_x) * (Math.sqrt(sum_xy));
-
-//		System.out.println(R);
 
 		
 		System.out.println("a" +  a);
@@ -221,7 +219,7 @@ public class Regression extends JFrame implements ActionListener {
 			y_tag.setVisible(true);
 
 			// Button
-			calcular.setVisible(true);
+			calculate.setVisible(true);
 			menu_back.setVisible(true);
 
 			} else if("menu".equals(event.getActionCommand())) {
@@ -245,7 +243,7 @@ public class Regression extends JFrame implements ActionListener {
 			y_tag.setVisible(false);
 
 			// Button
-			calcular.setVisible(false);
+			calculate.setVisible(false);
 			} else if("calcular".equals(event.getActionCommand())) {
 
  			double[] x_values = new double[x_text.length];
