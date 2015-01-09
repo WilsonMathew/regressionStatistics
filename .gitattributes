@@ -4,7 +4,7 @@ text eol=crlf
 # files that should be treated as binary
 *.png	binary
 *.jepg 	binary
-*.sf 	binary
+
 *.class binary
 *.exe -text
 *.zip -text
