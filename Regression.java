@@ -158,17 +158,14 @@ public class Regression extends JFrame implements ActionListener {
 	
 	public void getValues(double[] x_values, double[] y_values) {
 		
-		// where n represents the number of values set in menu
-		double n = Double.valueOf(menu_text.getText()).doubleValue();
+		double n = Double.valueOf(menu_text.getText()).doubleValue(); 	// number of
 		double sum_x = 0;
 		double sum_y = 0;
 
 		double sum_x2 = 0;
 		double sum_y2 = 0;
 
-	
 		double sum_xy = 0;
-
 
 		for(int i = 0; i < x_values.length; i++) {
 			sum_x += x_values[i];
@@ -181,21 +178,14 @@ public class Regression extends JFrame implements ActionListener {
 
 		}
 
-		double media_x = sum_x/n ;
-		double media_y = sum_y/n ;
-		double sxy = sum_xy/n - (media_x*media_y);
-		double sx_2 = sum_x2/n - (media_x*media_x);
-		double sy_2 = sum_y2/n - (media_y*media_y);
+		double avg_x = sum_x/n ;
+		double avg_y = sum_y/n ;
+		double sxy = sum_xy/n - (avg_x*avg_y);
+		double sx_2 = sum_x2/n - (avg_x*avg_x);
+		double sy_2 = sum_y2/n - (avg_y*avg_y);
 		double b = sxy/sx_2;
 
-		double a = media_y - (b*media_x) ;
-
-		
-		System.out.println("a" +  a);
-		System.out.println("b" + b);
-
-		System.out.println("sum_X" + sum_x + " sum_y " + sum_y + " x2" +  sum_x2 + "y2 " + sum_y2); 
-
+		double a = avg_y - (b*avg_x) ;
 	}
 
 	public void actionPerformed(ActionEvent event) {
