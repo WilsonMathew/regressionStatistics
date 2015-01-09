@@ -32,7 +32,6 @@ public class Regression extends JFrame implements ActionListener {
  	private JLabel mb_tag = new JLabel();
  	private JLabel line_equation = new JLabel();
  
-
 	// Lineal regression variables 
 	private	String m = " "; 		// slope
 	private String b = "";	
