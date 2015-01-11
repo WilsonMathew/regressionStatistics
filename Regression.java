@@ -108,6 +108,7 @@ public class Regression extends JFrame implements ActionListener {
 		menu.setBounds((m_x - (m_bw/2)), m_y+40, m_bw, h);
 		
 		// Buttons
+	
 		calculate.setBounds(50,540,90,30);
 		calculate.setVisible(false);
 
