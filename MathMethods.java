@@ -149,7 +149,7 @@ public class MathMethods {
 		}
 	}
 
-	public String Yequation () {
+	public String yEquation () {
 		return String.format("Y = %.3f x + %.3f", this.m, this.b);
 	}
 

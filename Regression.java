@@ -30,13 +30,11 @@ public class Regression extends JFrame implements ActionListener {
  	private JLabel x_tag = new JLabel("x");
  	private JLabel y_tag = new JLabel("y");
  	private JLabel mb_tag = new JLabel();
- 	private JLabel line_equation = new JLabel();
- 
-	// Lineal regression variables 
-	private	String m = " "; 		// slope
-	private String b = "";	
 
+ 
 	JPanel panel;
+
+	MathMethods mathHandling;
 	
 	public Regression() {
 
@@ -46,6 +44,7 @@ public class Regression extends JFrame implements ActionListener {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		 
+
 		// setting up erray to add a certain mumber of text fiedls 
 		menu_text.setText("12");
 		num_text = Integer.valueOf(menu_text.getText()).intValue();
@@ -74,7 +73,6 @@ public class Regression extends JFrame implements ActionListener {
 		panel.add(x_tag);
 		panel.add(y_tag);
 		panel.add(mb_tag);
-		panel.add(line_equation);
 
 		// marco
 		setTitle("Lineal Regression");
@@ -151,11 +149,11 @@ public class Regression extends JFrame implements ActionListener {
 		y_tag.setVisible(false);
 
 		mb_tag.setBounds(300,50 ,300, 20);
-		mb_tag.setVisible(false);
-		line_equation.setBounds(300,70,300, 20);
-		line_equation.setVisible(false);
+		mb_tag.setVisible(true);
 	}
 	
+	/* 
+	 * did all this in the MathMethods class
 	public void getValues(double[] x_values, double[] y_values) {
 		
 		double n = Double.valueOf(menu_text.getText()).doubleValue(); 	// number of
@@ -187,7 +185,7 @@ public class Regression extends JFrame implements ActionListener {
 
 		double a = avg_y - (b*avg_x) ;
 	}
-
+*/
 	public void actionPerformed(ActionEvent event) {
 		Object source = event.getSource();
 		// setting up button's actions
@@ -212,7 +210,7 @@ public class Regression extends JFrame implements ActionListener {
 			calculate.setVisible(true);
 			menu_back.setVisible(true);
 
-			} else if("menu".equals(event.getActionCommand())) {
+			}else if("menu".equals(event.getActionCommand())) {
 			
 			menu_back.setVisible(false);
 		
@@ -234,24 +232,28 @@ public class Regression extends JFrame implements ActionListener {
 
 			// Button
 			calculate.setVisible(false);
-			} else if("calcular".equals(event.getActionCommand())) {
+		} else if("calculate".equals(event.getActionCommand())) {
 
- 			double[] x_values = new double[x_text.length];
- 			double[] y_values = new double[y_text.length];
 
-			for(int i = 0; i < x_text.length; i++) {
+		 	double[] x_values = new double[x_text.length];
+			double[] y_values = new double[y_text.length];
+
+			int	n = Integer.valueOf(menu_text.getText()).intValue();
+			// converting text into double
+			for(int i = 0; i < n; i++) {
 
 				x_values[i] = Double.valueOf(x_text[i].getText()).doubleValue();
 				y_values[i] = Double.valueOf(y_text[i].getText()).doubleValue();
 			}
 
-			getValues(x_values,y_values);
+			mathHandling = new MathMethods(x_values,y_values,n);
+//			mb_tag.setText(mathHandling.toString());
 
-	//		m = String.format("%.3f ",getSlope(x_values, y_values));
-	//		b = String.format("%.3f", getB(x_values, y_values));
-
-			}
-		}
+			// If I don't add the "" + it gives me an error that mb_tag.setText cannot be applied to given type
+				mb_tag.setText("hello");
+				mb_tag.setVisible(true);
+			}	
+	}
 
 	public static void main(String[] args){
 		Regression programa = new Regression();
