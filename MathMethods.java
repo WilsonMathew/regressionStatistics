@@ -148,4 +148,12 @@ public class MathMethods {
 			this.sxy += (this.x_values[i] * this.x_values[i]);	
 		}
 	}
+
+	public String Yequation () {
+		return String.format("Y = %.3f x + %.3f", this.m, this.b);
+	}
+
+	public String toString() {
+		return String.format("sum(x): %.3f sum(y): %.3f sum(xy): %.3f sum(x^2): %.3f m: %.3f b: %.3f n: %d",this.sx, this.sy, this.sxy, this.sx2, this.m, this.b, this.n);
+	}
 }
