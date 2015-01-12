@@ -34,6 +34,7 @@ public class Regression extends JFrame implements ActionListener {
  
 	JPanel panel;
 
+	// class to handle all the mathematics 
 	MathMethods mathHandling;
 	
 	public Regression() {
@@ -43,7 +44,6 @@ public class Regression extends JFrame implements ActionListener {
 		panel.setPreferredSize(new Dimension(screen_width, screen_height));
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		 
 
 		// setting up erray to add a certain mumber of text fiedls 
 		menu_text.setText("12");
@@ -53,6 +53,7 @@ public class Regression extends JFrame implements ActionListener {
 
 		//x_text = new JTextField[num_text];
 		initUI();
+
 		// add
 
 		// buttons
@@ -213,8 +214,8 @@ public class Regression extends JFrame implements ActionListener {
 			}
 
 			mathHandling = new MathMethods(x_values,y_values,n);
-			//mb_tag.setText(mathHandling.toString());   <--this works
-			mb_tag.setText(this.mathHandling);             // <-- this gives me an error
+			mb_tag.setText(mathHandling.toString());   <--this works
+			//mb_tag.setText(this.mathHandling);             // <-- this gives me an error
 
 			// If I don't add the "" + it gives me an error that mb_tag.setText cannot be applied to given type
 //				mb_tag.setText("hello");
