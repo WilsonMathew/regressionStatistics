@@ -27,11 +27,19 @@ public class MathMethods {
 	private double sxy = 0;
 	private double sx2 = 0;
 
-	private double[] x_values;
+	private double[] x_values; 
 	private double[] y_values;
 
 	// Overloadding contructors
 	public MathMethods(){
+		// solve this problem emore efficiently
+		x_values  = new double[this.n];
+		y_values = new double[this.n];
+		// initializing arrays
+		for(int i = 0; i < this.n; i++) {
+			this.x_values[i] = 0;
+			this.y_values[i] = 0;
+		}
 
 		// setting up all values
 		set_sx();
@@ -50,14 +58,20 @@ public class MathMethods {
 	 * x,y,n
 	 */
 	public MathMethods(double[] x_values, double[] y_values, int n) {
+
+		// why were you using and then assigning it. 
+		// can't use a variable if you haven't defined it before.
+		this.n = n;
+
+		this.x_values  = new double[this.n];
+		this.y_values = new double[this.n];
+		
 		// putting each values of erray passed to local erray
 		for(int i = 0; i < this.n; i++) {
 
 			this.x_values[i] = x_values[i];
 			this.y_values[i] = y_values[i];
 		}
-
-		this.n = n;
 
 		// setting up all values
 		set_sx();
@@ -74,6 +88,15 @@ public class MathMethods {
 	 * x,y
 	 */
 	public MathMethods(double[] x_values, double[] y_values) {
+
+		x_values = new double[this.n];
+		y_values = new double[this.n];
+
+		// initializing arrays
+		for(int i = 0; i < this.n; i++) {
+			this.x_values[i] = 0;
+			this.y_values[i] = 0;
+		}
 
 		for(int i = 0; i < this.n; i++) {
 
@@ -145,7 +168,7 @@ public class MathMethods {
 	 */
 	public void set_sx2() {
 		for(int i = 0; i < this.n; i++) {
-			this.sxy += (this.x_values[i] * this.x_values[i]);	
+			this.sx2 += (this.x_values[i] * this.x_values[i]);	
 		}
 	}
 
