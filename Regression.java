@@ -152,40 +152,6 @@ public class Regression extends JFrame implements ActionListener {
 		mb_tag.setVisible(true);
 	}
 	
-	/* 
-	 * did all this in the MathMethods class
-	public void getValues(double[] x_values, double[] y_values) {
-		
-		double n = Double.valueOf(menu_text.getText()).doubleValue(); 	// number of
-		double sum_x = 0;
-		double sum_y = 0;
-
-		double sum_x2 = 0;
-		double sum_y2 = 0;
-
-		double sum_xy = 0;
-
-		for(int i = 0; i < x_values.length; i++) {
-			sum_x += x_values[i];
-			sum_y += y_values[i];
-
-			sum_x2 += x_values[i] * x_values[i];
-			sum_y2 += y_values[i] * y_values[i];
-
-			sum_xy += x_values[i] * y_values[i];
-
-		}
-
-		double avg_x = sum_x/n ;
-		double avg_y = sum_y/n ;
-		double sxy = sum_xy/n - (avg_x*avg_y);
-		double sx_2 = sum_x2/n - (avg_x*avg_x);
-		double sy_2 = sum_y2/n - (avg_y*avg_y);
-		double b = sxy/sx_2;
-
-		double a = avg_y - (b*avg_x) ;
-	}
-*/
 	public void actionPerformed(ActionEvent event) {
 		Object source = event.getSource();
 		// setting up button's actions
@@ -247,10 +213,11 @@ public class Regression extends JFrame implements ActionListener {
 			}
 
 			mathHandling = new MathMethods(x_values,y_values,n);
-//			mb_tag.setText(mathHandling.toString());
+			//mb_tag.setText(mathHandling.toString());   <--this works
+			mb_tag.setText(this.mathHandling);             // <-- this gives me an error
 
 			// If I don't add the "" + it gives me an error that mb_tag.setText cannot be applied to given type
-				mb_tag.setText("hello");
+//				mb_tag.setText("hello");
 				mb_tag.setVisible(true);
 			}	
 	}
