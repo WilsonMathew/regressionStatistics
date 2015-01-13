@@ -122,15 +122,21 @@ public class MathMethods {
 	public double get_sx2(){return this.sx2;}
 
 	// set methods
-	//Slope(m) = (NSXY - (SX)(SY)) / (NSX2 - (SX)2) 
-	//Intercept(b) = (SY - m(SX)) / N Where,
-	public void set_m() {
-		this.m = ((n*get_sxy()) - (get_sx()*get_sy())) / ((n*get_sx2()) - (2*get_sx()));
-	}	
+	/* this are the formulas used to get the methods
+	 * Slope(m) = (NSXY - (SX)(SY)) / (NSX2 - (SX)2) 
+	 * the set_sxy, set_sx, set_sy, set_sx2, and set_n 
+	 * shold be called before calling this methods 
+	 * to not get 0 or a wrong answer 
+	 */
+	public void set_m() { this.m = ((n*get_sxy()) - (get_sx()*get_sy())) / ((n*get_sx2()) - (2*get_sx())); }	
+	/*
+	* this are the formulas used to get the methods
+	 * Intercept(b) = (SY - m(SX)) / N 
+	 * the set_sy, set_m, and set_sx should be called before callig this method 
+	 * to not get 0 or a wrong answer
+	 */
 
-	public void set_b() {
-		this.b = (get_sy() - (get_m()*get_sx())) / n;
-	}
+	public void set_b() { this.b = (get_sy() - (get_m()*get_sx())) / n; }
 
 	public void set_n(int n){this.n = n;}
 
@@ -172,10 +178,17 @@ public class MathMethods {
 		}
 	}
 
+	/*
+	 * This method retunrs a string with the y equation in the form
+	 * Y = mx + b variale descrived above 
+	 */ 
 	public String yEquation () {
 		return String.format("Y = %.3f x + %.3f", this.m, this.b);
 	}
 
+	/*
+	 * To string method that java automaticlly calls.
+	 */
 	public String toString() {
 		return String.format("sum(x): %.3f sum(y): %.3f sum(xy): %.3f sum(x^2): %.3f m: %.3f b: %.3f n: %d",this.sx, this.sy, this.sxy, this.sx2, this.m, this.b, this.n);
 	}
