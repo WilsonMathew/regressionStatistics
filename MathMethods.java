@@ -1,23 +1,22 @@
-public class MathMethods {
-
+public class MathMethods { 
 	/*
-	Regression Equation(y) = b + mx 
-	Slope(m) = (NSXY - (SX)(SY)) / (NSX2 - (SX)2) 
-	Intercept(b) = (SY - m(SX)) / N 
+	   Regression Equation(y) = b + mx 
+	   Slope(m) = (NSXY - (SX)(SY)) / (NSX2 - (SX)2) 
+	   Intercept(b) = (SY - m(SX)) / N 
 
-	Where,
-	x and y are the variables. 
-	X = First Score				 
-	Y = Second Score			<-- values the user enters. 
-	
-	m = The slope of the regression line 
-	b = The intercept point of the regression line and the y axis. 
-	N = Number of values or elements 
-	SXY = Sum of the product of first and Second Scores 
-	SX = Sum of First Scores 
-	SY = Sum of Second Scores 
-	SX2 = Sum of square First Scores 
-	*/
+	   Where,
+	   x and y are the variables. 
+	   X = First Score				 
+	   Y = Second Score			<-- values the user enters. 
+
+	   m = The slope of the regression line 
+	   b = The intercept point of the regression line and the y axis. 
+	   N = Number of values or elements 
+	   SXY = Sum of the product of first and Second Scores 
+	   SX = Sum of First Scores 
+	   SY = Sum of Second Scores 
+	   SX2 = Sum of square First Scores 
+	   */
 
 	private int n = 0;
 	private double sx = 0;
@@ -32,9 +31,11 @@ public class MathMethods {
 
 	// Overloadding contructors
 	public MathMethods(){
+
 		// solve this problem emore efficiently
 		x_values  = new double[this.n];
 		y_values = new double[this.n];
+
 		// initializing arrays
 		for(int i = 0; i < this.n; i++) {
 			this.x_values[i] = 0;
@@ -65,7 +66,7 @@ public class MathMethods {
 
 		this.x_values  = new double[this.n];
 		this.y_values = new double[this.n];
-		
+
 		// putting each values of erray passed to local erray
 		for(int i = 0; i < this.n; i++) {
 
@@ -130,7 +131,7 @@ public class MathMethods {
 	 */
 	public void set_m() { this.m = ((n*get_sxy()) - (get_sx()*get_sy())) / ((n*get_sx2()) - (2*get_sx())); }	
 	/*
-	* this are the formulas used to get the methods
+	 * this are the formulas used to get the methods
 	 * Intercept(b) = (SY - m(SX)) / N 
 	 * the set_sy, set_m, and set_sx should be called before callig this method 
 	 * to not get 0 or a wrong answer
