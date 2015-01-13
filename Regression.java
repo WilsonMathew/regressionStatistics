@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
- /*****************************************************************
+/*****************************************************************
  * Lineal regression Statics
  * Wilson Mateo
  * ***************************************************************/
@@ -11,32 +11,32 @@ import javax.swing.*;
 public class Regression extends JFrame implements ActionListener {
 
 	// Frame variable 
- 	private static int screen_width = 600;
- 	private static int screen_height = 600;
- 
- 	// Buttons
- 	private JButton menu = new JButton("Go");
- 	private JButton menu_back = new JButton("menu"); 
- 	private JButton calculate = new JButton("calculate"); 
+	private static int screen_width = 600;
+	private static int screen_height = 600;
 
- 	// textFields
- 	private JTextField menu_text = new JTextField();
- 	private int num_text = 12; 								// Number that assins the elements of the x_text Erray
- 	private JTextField[] x_text;
- 	private JTextField[] y_text;
+	// Buttons
+	private JButton menu = new JButton("Go");
+	private JButton menu_back = new JButton("menu"); 
+	private JButton calculate = new JButton("calculate"); 
 
- 	// Labels
- 	private JLabel menu_label = new JLabel("Ingrese un integer 0 < n < 12");
- 	private JLabel x_tag = new JLabel("x");
- 	private JLabel y_tag = new JLabel("y");
- 	private JLabel mb_tag = new JLabel();
+	// textFields
+	private JTextField menu_text = new JTextField();
+	private int num_text = 12; 								// Number that assins the elements of the x_text Erray
+	private JTextField[] x_text;
+	private JTextField[] y_text;
 
- 
+	// Labels
+	private JLabel menu_label = new JLabel("Ingrese un integer 0 < n < 12");
+	private JLabel x_tag = new JLabel("x");
+	private JLabel y_tag = new JLabel("y");
+	private JLabel mb_tag = new JLabel();
+
+
 	JPanel panel;
 
 	// class to handle all the mathematics 
 	MathMethods mathHandling;
-	
+
 	public Regression() {
 
 		// panel	
@@ -80,13 +80,13 @@ public class Regression extends JFrame implements ActionListener {
 		pack();
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE); 
-		
+
 		// Implement Action Listener
 		menu.addActionListener(this);
 		menu_back.addActionListener(this);
 		calculate.addActionListener(this);
 	}
-	
+
 	/*
 	 *  All GUI set up. 
 	 */
@@ -100,12 +100,12 @@ public class Regression extends JFrame implements ActionListener {
 		int m_x = screen_width/2;
 		int m_y = screen_width/2;
 
- 		// Menu object.
- 		// setBounds(x, y, width, height);
+		// Menu object.
+		// setBounds(x, y, width, height);
 		menu_label.setBounds((m_x - (m_lw/2)), m_y - 40, m_lw, h);
 		menu_text.setBounds((m_x - (m_tw/2)), m_y, m_tw, h);
 		menu.setBounds((m_x - (m_bw/2)), m_y+40, m_bw, h);
-		
+
 		// Buttons
 		calculate.setBounds(50,540,90,30);
 		calculate.setVisible(false);
@@ -116,7 +116,7 @@ public class Regression extends JFrame implements ActionListener {
 		for( int i = 0; i < x_text.length ;i++){
 			x_text[i] = new  JTextField();
 			x_text[i].setVisible(false);
-			
+
 			y_text[i] = new JTextField();
 			y_text[i].setVisible(false);
 		}
@@ -128,7 +128,7 @@ public class Regression extends JFrame implements ActionListener {
 		for(int i = 0; i < x_text.length; i++) {
 			x_text[i].setBounds(xt_position,yt_position,40,30);
 			x_text[i].setText(0 + "");
-			
+
 			yt_position += 40;
 		}
 
@@ -148,11 +148,11 @@ public class Regression extends JFrame implements ActionListener {
 		y_tag.setBounds(110,25,10,15);
 		y_tag.setVisible(false);
 
-			// equation labels
+		// equation labels
 		mb_tag.setBounds(300,50 ,300, 20);
 		mb_tag.setVisible(true);
 	}
-	
+
 	public void actionPerformed(ActionEvent event) {
 		Object source = event.getSource();
 		// setting up button's actions
@@ -177,13 +177,13 @@ public class Regression extends JFrame implements ActionListener {
 			calculate.setVisible(true);
 			menu_back.setVisible(true);
 
-			}else if("menu".equals(event.getActionCommand())) {
-			
+		}else if("menu".equals(event.getActionCommand())) {
+
 			menu_back.setVisible(false);
-		
+
 			// Making everything of the second screen not visible
 			// and showing optons for menu
-			
+
 			menu.setVisible(true);
 			menu_text.setVisible(true);
 			menu_label.setVisible(true); 
@@ -202,7 +202,7 @@ public class Regression extends JFrame implements ActionListener {
 		} else if("calculate".equals(event.getActionCommand())) {
 
 
-		 	double[] x_values = new double[x_text.length];
+			double[] x_values = new double[x_text.length];
 			double[] y_values = new double[y_text.length];
 			int	n = Integer.valueOf(menu_text.getText()).intValue();
 
@@ -213,11 +213,11 @@ public class Regression extends JFrame implements ActionListener {
 			}
 
 			mathHandling = new MathMethods(x_values,y_values,n);
-			mb_tag.setText(mathHandling.toString()); //  <--this works
-			//mb_tag.setText(this.mathHandling);             // <-- this gives me an error
+			mb_tag.setText(mathHandling.toString()); //  		<--this works
+			//mb_tag.setText(this.mathHandling);             // <-- this gives me an error in windows, but criter tested it in mac and it works.
 
-				mb_tag.setVisible(true);
-			}	
+			mb_tag.setVisible(true);
+		}	
 	}
 
 	public static void main(String[] args){
