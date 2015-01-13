@@ -75,7 +75,7 @@ public class Regression extends JFrame implements ActionListener {
 		panel.add(y_tag);
 		panel.add(mb_tag);
 
-		// marco
+		// frame settings.
 		setTitle("Lineal Regression");
 		pack();
 		setLocationRelativeTo(null);
@@ -88,7 +88,7 @@ public class Regression extends JFrame implements ActionListener {
 	}
 	
 	/*
-	 *  Button options
+	 *  All GUI set up. 
 	 */
 	public void initUI() {
 
@@ -107,10 +107,8 @@ public class Regression extends JFrame implements ActionListener {
 		menu.setBounds((m_x - (m_bw/2)), m_y+40, m_bw, h);
 		
 		// Buttons
-	
 		calculate.setBounds(50,540,90,30);
 		calculate.setVisible(false);
-
 		menu_back.setBounds(500,10, 90,h);
 		menu_back.setVisible(false);
 
@@ -134,6 +132,7 @@ public class Regression extends JFrame implements ActionListener {
 			yt_position += 40;
 		}
 
+		// variables to manipulate the positon of Jtexfields dinamically
 		xt_position = 100;
 		yt_position = 50;
 
@@ -149,6 +148,7 @@ public class Regression extends JFrame implements ActionListener {
 		y_tag.setBounds(110,25,10,15);
 		y_tag.setVisible(false);
 
+			// equation labels
 		mb_tag.setBounds(300,50 ,300, 20);
 		mb_tag.setVisible(true);
 	}
@@ -204,21 +204,18 @@ public class Regression extends JFrame implements ActionListener {
 
 		 	double[] x_values = new double[x_text.length];
 			double[] y_values = new double[y_text.length];
-
 			int	n = Integer.valueOf(menu_text.getText()).intValue();
+
 			// converting text into double
 			for(int i = 0; i < n; i++) {
-
 				x_values[i] = Double.valueOf(x_text[i].getText()).doubleValue();
 				y_values[i] = Double.valueOf(y_text[i].getText()).doubleValue();
 			}
 
 			mathHandling = new MathMethods(x_values,y_values,n);
-			mb_tag.setText(mathHandling.toString());   <--this works
+			mb_tag.setText(mathHandling.toString()); //  <--this works
 			//mb_tag.setText(this.mathHandling);             // <-- this gives me an error
 
-			// If I don't add the "" + it gives me an error that mb_tag.setText cannot be applied to given type
-//				mb_tag.setText("hello");
 				mb_tag.setVisible(true);
 			}	
 	}
