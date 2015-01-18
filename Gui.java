@@ -8,7 +8,7 @@ import javax.swing.*;
  * Wilson Mateo
  * ***************************************************************/
 
-public class Regression extends JFrame implements ActionListener {
+public class Gui extends JFrame implements ActionListener {
 
 	// Frame variable 
 	private static int screen_width = 600;
@@ -220,8 +220,4 @@ public class Regression extends JFrame implements ActionListener {
 		}	
 	}
 
-	public static void main(String[] args){
-		Regression programa = new Regression();
-		programa.setVisible(true);
-	}
 }
