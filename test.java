@@ -2,7 +2,7 @@
 public class test {
 
 	public static void main(String[] args){
-		Regression programa = new Regression();
+		Gui programa = new Gui();
 		programa.setVisible(true);
 	}
 }

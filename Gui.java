@@ -37,7 +37,7 @@ public class Gui extends JFrame implements ActionListener {
 	// class to handle all the mathematics 
 	MathMethods mathHandling;
 
-	public Regression() {
+	public Gui() {
 
 		// panel	
 		panel = new JPanel();
