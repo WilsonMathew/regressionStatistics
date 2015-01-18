@@ -26,7 +26,7 @@ public class Gui extends JFrame implements ActionListener {
 	private JTextField[] y_text;
 
 	// Labels
-	private JLabel menu_label = new JLabel("Ingrese un integer 0 < n < 12");
+	private JLabel menu_label = new JLabel("Enter a number such that 0<n<=12");
 	private JLabel x_tag = new JLabel("x");
 	private JLabel y_tag = new JLabel("y");
 	private JLabel mb_tag = new JLabel();
