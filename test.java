@@ -5,3 +5,4 @@ public class test {
 		Regression programa = new Regression();
 		programa.setVisible(true);
 	}
+}
